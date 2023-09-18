@@ -1,8 +1,8 @@
-- 👋 Hi, I’m @Samuelmassco
-- 👀 I’m interested in matematics (more precisely in graph theory)
-- 🌱 I’m currently learning enginering in polimi 
+- 👋 Hi, I’m @Samuelmassco but you can call me sam :)
+- 👀 I’m interested in matematics (more precisely in graph theory), handball, chess and cs 
+- 🌱 I’m currently learning enginering in politecnico di milano 
 - 💞️ I’m looking to collaborate on anything where i can be useful
-- 📫 How to reach me contact me on telegram if you want samuel_co17
+- 📫 How to reach me contact me on telegram if you want @Samuel_co17
 
 <!---
 Samuelmassco/Samuelmassco is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
