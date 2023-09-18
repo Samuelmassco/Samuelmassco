@@ -1,4 +1,7 @@
-
+#this is a project i really wanted to do, it uses more or less everything i lurned in my first year at polito
+#this is a flower store, client can buy flower for the price they want and sometimes they dont buy flower 
+#the idea is to colect data such as name, price etc.. and then calculate an average, fun thing is when you repeat 
+#the programme it converge to the "esperence matematique" 
 
 
 import random
@@ -6,11 +9,14 @@ import csv
 
 
 def creat_doc():
+    #creats the csv file we are going to use
     try:
         filename = "csv_flower"
         outfile = open(filename, "a")
         with open(filename, "w", newline='') as csv_flower:
-            pass
+            texte="client number, name, price, did he buy ?"
+            csv.writer(csv_flower).writerow([texte])
+            #this is writing the texte at the begining of the csv file so the file is easier to read 
     except OSError:
         print('problem')
 
@@ -97,6 +103,8 @@ def analyse_doc(number__repetition):
         outfile = open(filename, "r")
         with open(filename, "r", newline='') as file:
            line=outfile.readline()
+           line = outfile.readline()
+           #2 times so he start at second line cause first line is strings explainings the doc 
            while line !="":
                line=line.strip()
                line=line.split(",")
@@ -106,6 +114,7 @@ def analyse_doc(number__repetition):
                line = outfile.readline()
 
            prix.sort(reverse=True)
+           #basic maths but important 
            chiffre=sum(prix)
            average = number__sold__flower / number__repetition
            average__cost = chiffre / number__repetition
@@ -142,3 +151,5 @@ def main():
 
 if __name__=='__main__':
     main()
+
+
