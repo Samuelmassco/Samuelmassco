@@ -1,0 +1,144 @@
+
+
+
+import random
+import csv
+
+
+def creat_doc():
+    try:
+        filename = "csv_flower"
+        outfile = open(filename, "a")
+        with open(filename, "w", newline='') as csv_flower:
+            pass
+    except OSError:
+        print('problem')
+
+
+
+def dicto(name__of__buyer):
+    dict={} #this is the only moment i use chat gpt to get the dictionaire cause i was lazy but hey this how coding works
+    dict={1: "Alice",
+    2: "Bob",
+    3: "Charlie",
+    4: "David",
+    5: "Eve",
+    6: "Frank",
+    7: "Grace",
+    8: "Helen",
+    9: "Irene",
+    10: "Jack",
+    11: "Kate",
+    12: "Liam",
+    13: "Mia",
+    14: "Nora",
+    15: "Oliver",
+    16: "Penelope",
+    17: "Quinn",
+    18: "Ryan",
+    19: "Sophia",
+    20: "Thomas",
+    21: "Uma",
+    22: "Victor",
+    23: "Wendy",
+    24: "Xander",
+    25: "Yara",
+    26: "Zane",
+    27: "Grace",
+    28: "Isaac",
+    29: "Hannah",
+    30: "Liam",
+    31: "Olivia",
+    32: "Ella",
+    33: "Benjamin",
+    34: "Sophia",
+    35: "Jacob"
+}
+    if name__of__buyer not in dict:
+        exit()
+    else:
+        name__of__buyer=dict[name__of__buyer]
+        return name__of__buyer
+
+
+def _costumer(i):
+    output = 0
+    buyer = random.randint(1,3) # or the man wants flower 2 and 3 or he doesnt 1
+    if buyer == 1:
+        output = i, "didn't buy", 0,0,0
+    else:
+        name__of__buyer = random.randint(1, 35)
+        name__of__buyer = dicto(name__of__buyer)
+        price = random.randint(1, 50)
+        output = i,name__of__buyer, price,1,0
+
+
+    return output
+
+def writting(information):
+    try:
+        filename = "csv_flower"
+        outfile=open(filename,"a")
+        with open(filename,"a", newline='') as csv_flower:
+            csv_writer = csv.writer(csv_flower)
+            csv_writer.writerow(information)
+
+    except OSError:
+        print('problem')
+        exit()
+
+
+
+def analyse_doc(number__repetition):
+    prix=[]
+    number__sold__flower=0
+    try:
+        filename = "csv_flower"
+        outfile = open(filename, "r")
+        with open(filename, "r", newline='') as file:
+           line=outfile.readline()
+           while line !="":
+               line=line.strip()
+               line=line.split(",")
+               prix.append(int(line[2]))
+
+               number__sold__flower=number__sold__flower+int(line[3])
+               line = outfile.readline()
+
+           prix.sort(reverse=True)
+           chiffre=sum(prix)
+           average = number__sold__flower / number__repetition
+           average__cost = chiffre / number__repetition
+
+           print("today we have won",chiffre)
+           print("the biggest sel was of ",prix[0])
+           print("you can check the record in the csv file :)")
+           print("we have sold",number__sold__flower,"and",number__repetition,"people came in the store so this is an average of ",average)
+
+
+
+
+
+
+
+
+    except OSError:
+        print('probleme')
+        exit()
+
+
+def main():
+
+    creat_doc()
+    number__repetition=35
+    for i in range(number__repetition):
+        information=_costumer(i)
+        writting(information)
+
+    analyse_doc(number__repetition)
+
+
+
+
+if __name__=='__main__':
+    main()
