@@ -1,0 +1,71 @@
+
+
+# hi my name is samuel coriat, i am student at polito  and i was interesterd by the "Conjecture de Goldbach" that says that for every n>1 there existe
+#p1 and p2 prime number such that p1+p2= 2n
+#this is a probleme that hasn't been solve yet but here is just a computer thing that says it does until n
+
+
+from math import *
+def main():
+
+    n=100##   biggest number, feel free to change it
+    n__ = 2 * n
+
+    liste__prime=[]
+    for k in range(0,2*n__):#looking for prime number
+        recherche(k,liste__prime)
+    liste__prime.remove(0)
+    liste__prime.remove(1)
+    print(liste__prime)# in l there is a list of all the prime number until 2n
+
+
+    #we have all the prime number in a list lets prouve than for every n>2 2n can be written as p1+P2 that are prime number
+
+    prof(liste__prime,n)
+
+
+
+
+
+def recherche(n,liste__prime):   # this is looking if n is a prime number
+    nombreprim=True
+    for i in range(2,n):
+        if n%i==0:
+            nombreprim=False
+
+    if nombreprim==True:# if n is prime then we add it to the list of prime number
+        liste__prime.append(n)
+
+    return liste__prime
+
+
+
+def prof(liste__prime,n):
+    x=len(liste__prime)
+    liste__final=[]
+    for i in range(2,n):
+        k=2*i
+        # on doit mq k est somme de deux nombre premier
+        trouve=False
+        while trouve==False:
+            for g in range(x):
+                for m in range(x):
+                    p1=liste__prime[g]
+                    p2=liste__prime[m]
+                    somme=p2+p1
+                    if somme==k:# we founded 2 prime number such that p1+P2= 2N
+                        a=(p2,p1,k)
+                        #print(a)
+                        liste__final.append(a)
+                        trouve=True
+                    else:
+                        pass
+            if trouve==False:
+                print("gros probleme")
+                exit()
+
+    for i in range(len(liste__final)):
+        print(liste__final[i])
+
+if __name__=='__main__':
+    main()
