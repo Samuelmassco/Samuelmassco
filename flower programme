@@ -1,7 +1,8 @@
 #this is a project i really wanted to do, it uses more or less everything i lurned in my first year at polito
 #this is a flower store, client can buy flower for the price they want and sometimes they dont buy flower 
-#the idea is to colect data such as name, price etc.. and then calculate an average, fun thing is when you repeat 
-#the programme it converge to the "esperence matematique" 
+#the idea is to colect data such as name, price etc.. and then calculate an average, 
+#What's funny is that when you repeat it, the program converges towards the mathematical expectation. 
+#This is somewhat an illustration of the law of large numbers.
 
 
 import random
