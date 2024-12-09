@@ -1,0 +1,42 @@
+
+#this is a very nice problem given to me by a proffessor, show that for all prime number bigger than 5 it is in the sequence un=sqrt(24un+1)
+
+from math import isqrt, sqrt
+
+def main():
+    n = 300
+    prime_list = find_primes(n)
+
+    # Dictionary to store terms of the sequence and their corresponding indices
+    sequence_terms = {}
+    for i in range(1, n**2 + 1):
+        u_n = sqrt(24 * i + 1)
+        if u_n.is_integer():
+            sequence_terms[int(u_n)] = i
+
+    # Checking if primes are in the sequence
+    for k in range(3, n):
+        prime = prime_list[k]
+        if prime in sequence_terms:
+            print(prime,'is a term of the sequence with n = ',sequence_terms[prime])
+        else:
+            print(prime,"is not a term of the sequence")
+            break
+
+
+def find_primes(n):
+    limit = 2 * n
+    sieve = [True] * (limit + 1)
+    sieve[0] = sieve[1] = False  # 0 and 1 are not prime numbers
+
+    # Sieve of Eratosthenes
+    for i in range(2, isqrt(limit) + 1):
+        if sieve[i]:
+            for multiple in range(i * i, limit + 1, i):
+                sieve[multiple] = False
+
+    return [i for i, is_prime in enumerate(sieve) if is_prime]
+
+
+if __name__ == "__main__":
+    main()
