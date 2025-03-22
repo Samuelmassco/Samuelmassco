@@ -5,7 +5,7 @@
 #include <numbers>
 #include <cstdio>
 #include <stack>
-
+// ce file est une prise de note sur le  C++ 
 
 int nb_aleatoire() {
     std::srand(std::time(0));  // Initialisation du générateur avec l'heure actuelle
